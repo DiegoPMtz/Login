@@ -9,7 +9,6 @@
     android:background="#FAFAFA"
     tools:context=".fragment_update">
 
-<!--imagen-->
     <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="200dp"
         android:layout_height="200dp"
@@ -29,32 +28,33 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/update_pass"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginHorizontal="15dp"
         app:boxBackgroundColor="@color/white"
         app:hintTextColor="@color/black"
-        android:hint="Contraseña nueva">
+        android:hint="Contraseña anterior">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/update_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/udpate_conf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginHorizontal="15dp"
         app:boxBackgroundColor="@color/white"
         app:hintTextColor="@color/black"
-        android:hint="Confirmar contraseña">
+        android:hint="Contraseña nueva">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/udpate_conf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword" />

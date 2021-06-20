@@ -13,13 +13,19 @@ import java.util.List;
 public interface MyDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    public void adduser(User user);
+    void adduser(User user);
 
     @Query("SELECT * FROM users WHERE matriculas=(:matricula) and password=(:password)")
-    public User login(int matricula,String password);
+    User login(int matricula, String password);
 
     @Query("SELECT * FROM users WHERE matriculas=(:matricula)")
-    public User check(int matricula);
+    User check(int matricula);
+
+    @Query("SELECT * FROM users WHERE password=(:password)")
+    User passwd(String password);
+
+    @Update
+    void updateuser(User user);
 
     
 

@@ -40,13 +40,15 @@ public class fragment_datos extends Fragment {
         btn_cambiar = view.findViewById(R.id.btn_cambiar);
         btn_atras = view.findViewById(R.id.btn_atras_dato);
         txtMatricula = view.findViewById(R.id.txt_matricula);
-        txtContraseña = view.findViewById(R.id.txt_contraseña);
+
+        User user = new User();
+
 
 
         btn_cambiar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                navController.navigate(R.id.fragment_update);
             }
         });
 
