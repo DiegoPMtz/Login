@@ -14,5 +14,10 @@ public interface MyDao {
     @Insert
     public void adduser(User user);
 
+    @Query("SELECT * FROM users WHERE matriculas=(:matricula) and password=(:password)")
+    public User login(int matricula,String password);
+
+    
+
 
 }

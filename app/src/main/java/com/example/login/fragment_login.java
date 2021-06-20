@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -23,6 +24,7 @@ public class fragment_login extends Fragment {
 
     Button btn_ingresar;
     TextView registar;
+    EditText matricula,password;
 
 
     public fragment_login() {
@@ -35,12 +37,23 @@ public class fragment_login extends Fragment {
         final NavController navController = Navigation.findNavController(view);
         btn_ingresar = view.findViewById(R.id.btn_ingresar);
         registar = view.findViewById(R.id.registrar);
+        matricula = view.findViewById(R.id.login_mat);
+        password = view.findViewById(R.id.login_pass);
 
 
         btn_ingresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.fragment_datos);
+                int mat = Integer.parseInt(matricula.getText().toString());
+                String pass = password.getText().toString();
+                User user = MainActivity.myAppDatabase.myDao().login(mat,pass);
+                if (user==null){
+                    Toast.makeText(getActivity(),"Credenciales invalidas",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getActivity(),"Bienvenido",Toast.LENGTH_SHORT).show();
+                    navController.navigate(R.id.fragment_datos);
+                }
+
             }
         });
 

@@ -61,6 +61,7 @@ public class fragment_register extends Fragment {
                     matricula.setText("");
                     password.setText("");
                     comprobar.setText("");
+                    navController.navigate(R.id.fragment_update);
                 }
                 else if (pass != comp){
                     Toast.makeText(getActivity(), "Contraseñas diferentes", Toast.LENGTH_SHORT).show();
@@ -68,7 +69,7 @@ public class fragment_register extends Fragment {
                     comprobar.setText("");
                 }
 
-                navController.navigate(R.id.fragment_update);
+
 
             }
         });
