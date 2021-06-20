@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_grap"
+    app:startDestination="@id/fragment_login">
+
+    <fragment
+        android:id="@+id/fragment_login"
+        android:name="com.example.login.fragment_login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_fragment_login_to_fragment_datos"
+            app:destination="@id/fragment_datos" />
+        <action
+            android:id="@+id/action_fragment_login_to_fragment_update"
+            app:destination="@id/fragment_update" />
+        <action
+            android:id="@+id/action_fragment_login_to_fragment_register"
+            app:destination="@id/fragment_register" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_update"
+        android:name="com.example.login.fragment_update"
+        android:label="fragment_datos"
+        tools:layout="@layout/fragment_update" />
+    <fragment
+        android:id="@+id/fragment_datos"
+        android:name="com.example.login.fragment_datos"
+        android:label="fragment_datos"
+        tools:layout="@layout/fragment_datos"/>
+    <fragment
+        android:id="@+id/fragment_register"
+        android:name="com.example.login.fragment_register"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register"/>
+</navigation>
