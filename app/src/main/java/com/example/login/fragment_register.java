@@ -68,7 +68,7 @@ public class fragment_register extends Fragment {
                         navController.navigate(R.id.fragment_datos);
                     }
                     else if (pass != comp){
-                        Toast.makeText(getActivity(), "Contraseñas diferentes", Toast.LENGTH_SHORT).show();
+                        comprobar.setError("Las contraseñas no coinciden");
                         password.setText("");
                         comprobar.setText("");
                     }

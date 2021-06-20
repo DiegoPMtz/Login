@@ -44,15 +44,26 @@ public class fragment_login extends Fragment {
         btn_ingresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int mat = Integer.parseInt(matricula.getText().toString());
-                String pass = password.getText().toString();
-                User user = MainActivity.myAppDatabase.myDao().login(mat,pass);
-                if (user==null){
-                    Toast.makeText(getActivity(),"Credenciales invalidas",Toast.LENGTH_SHORT).show();
+                int mat;
+                if (matricula.getText().toString().isEmpty()){
+                    mat = 0;
                 }else{
-                    Toast.makeText(getActivity(),"Bienvenido",Toast.LENGTH_SHORT).show();
-                    navController.navigate(R.id.fragment_datos);
+                mat = Integer.valueOf(matricula.getText().toString());
                 }
+                String pass = password.getText().toString();
+                if (mat == 0 || pass.isEmpty()){
+                    matricula.setError("Campo vacio");
+                    password.setError("Campo vacio");
+                }else{
+                    User user = MainActivity.myAppDatabase.myDao().login(mat,pass);
+                    if (user==null){
+                        Toast.makeText(getActivity(),"Credenciales invalidas",Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(getActivity(),"Bienvenido",Toast.LENGTH_SHORT).show();
+                        navController.navigate(R.id.fragment_datos);
+                    }
+                }
+
 
             }
         });
