@@ -53,21 +53,27 @@ public class fragment_register extends Fragment {
                 String pass = password.getText().toString();
                 String comp = comprobar.getText().toString();
                 User user = new User();
+                User check = MainActivity.myAppDatabase.myDao().check(matri);
+                if (check != null){
+                    Toast.makeText(getActivity(),"Usuario Existente",Toast.LENGTH_SHORT).show();
+                }else{
                 user.setMatricula(matri);
-                if (pass.equals(comp)){
-                    user.setPassword(pass);
-                    MainActivity.myAppDatabase.myDao().adduser(user);
-                    Toast.makeText(getActivity(), "Usuario registrado", Toast.LENGTH_SHORT).show();
-                    matricula.setText("");
-                    password.setText("");
-                    comprobar.setText("");
-                    navController.navigate(R.id.fragment_update);
+                    if (pass.equals(comp)){
+                        user.setPassword(pass);
+                        MainActivity.myAppDatabase.myDao().adduser(user);
+                        Toast.makeText(getActivity(), "Usuario registrado", Toast.LENGTH_SHORT).show();
+                        matricula.setText("");
+                        password.setText("");
+                        comprobar.setText("");
+                        navController.navigate(R.id.fragment_datos);
+                    }
+                    else if (pass != comp){
+                        Toast.makeText(getActivity(), "Contraseñas diferentes", Toast.LENGTH_SHORT).show();
+                        password.setText("");
+                        comprobar.setText("");
+                    }
                 }
-                else if (pass != comp){
-                    Toast.makeText(getActivity(), "Contraseñas diferentes", Toast.LENGTH_SHORT).show();
-                    password.setText("");
-                    comprobar.setText("");
-                }
+
 
 
 
